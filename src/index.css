@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Amanda Carpenedo Portfolio - Blue/Navy Design System */
+
+@layer base {
+  :root {
+    /* Dark mode as default - Modern black with beige/cream accents */
+    --background: 0 0% 4%;
+    --foreground: 40 20% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 35 25% 75%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 35 30% 80%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 40 20% 92%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 35 25% 75%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio colors - Beige/Cream tones */
+    --cream: 40 20% 92%;
+    --cream-dark: 35 15% 80%;
+    --beige: 35 25% 75%;
+    --beige-light: 35 30% 85%;
+    --charcoal: 0 0% 12%;
+    --charcoal-light: 0 0% 18%;
+    --dark-gray: 220 5% 12%;
+  }
+
+  /* Light mode */
+  .light {
+    --background: 40 20% 96%;
+    --foreground: 0 0% 10%;
+
+    --card: 40 15% 98%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 15% 98%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 35 40% 35%;
+    --primary-foreground: 40 20% 96%;
+
+    --secondary: 35 15% 90%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 35 10% 92%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 35 35% 45%;
+    --accent-foreground: 40 20% 96%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 40 20% 96%;
+
+    --border: 35 15% 85%;
+    --input: 35 15% 85%;
+    --ring: 35 40% 35%;
+
+    --cream: 40 20% 92%;
+    --cream-dark: 35 15% 80%;
+    --beige: 35 25% 75%;
+    --beige-light: 35 30% 85%;
+    --charcoal: 35 10% 88%;
+    --charcoal-light: 35 10% 92%;
+    --dark-gray: 35 10% 92%;
+  }
+
+  /* Dark mode */
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 40 20% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 35 25% 75%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 35 30% 80%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 40 20% 92%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 35 25% 75%;
+
+    --cream: 40 20% 92%;
+    --cream-dark: 35 15% 80%;
+    --beige: 35 25% 75%;
+    --beige-light: 35 30% 85%;
+    --charcoal: 0 0% 12%;
+    --charcoal-light: 0 0% 18%;
+    --dark-gray: 220 5% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite];
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  .gradient-bg-hover {
+    @apply bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transition-all duration-500;
+  }
+
+  .glass {
+    @apply bg-primary/10 backdrop-blur-xl border border-primary/20;
+  }
+
+  .glass-dark {
+    @apply bg-background/80 backdrop-blur-xl border border-border/20;
+  }
+
+  .glass-beige {
+    @apply bg-primary/15 backdrop-blur-xl border border-primary/25 shadow-lg shadow-primary/5;
+  }
+
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+
+  .text-beige {
+    color: hsl(var(--beige));
+  }
+
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
