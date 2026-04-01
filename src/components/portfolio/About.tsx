@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const highlights = [
   {
     icon: Code,
-    title: "Sviluppo Frontend",
-    description: "Sviluppo di siti web responsivi e performanti con HTML, CSS, JavaScript, WordPress e librerie moderne.",
+    title: "Sviluppo Full-Stack",
+    description: "Sviluppo di siti web responsivi e performanti con HTML, CSS, JavaScript, WordPress, PHP e MySQL.",
   },
   {
     icon: Palette,
@@ -37,7 +37,7 @@ const About = () => {
             Profilo <span className="gradient-text"> Professionale</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Sviluppatrice Frontend specializzata nella creazione di interfacce moderne, scalabili e centrate sull'utente. Domino sia la scrittura di codice personalizzato che la gestione avanzata di piattaforme come WordPress, offrendo soluzioni web che uniscono un'estetica impeccabile a un codice pulito e ottimizzato.
+            Sviluppatrice Full-Stack specializzata nella creazione di siti e applicazioni, scalabili e centrate sull'utente. Domino sia la scrittura di codice personalizzato che la gestione avanzata di piattaforme come WordPress, offrendo soluzioni web che uniscono un'estetica impeccabile a un codice pulito e ottimizzato.
           </p>
         </div>
 

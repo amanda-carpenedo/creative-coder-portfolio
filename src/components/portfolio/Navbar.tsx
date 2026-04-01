@@ -65,7 +65,7 @@ const Navbar = () => {
             ))}
             <ThemeToggle />
             <a
-              href="/docs/Amanda-Carpenedo-CV-frontend.pdf" 
+              href="/docs/Amanda-Carpenedo-CV.pdf" 
               download="Curriculo_Amanda_Carpenedo.pdf" 
               rel="noopener noreferrer"
             >

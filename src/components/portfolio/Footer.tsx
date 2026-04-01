@@ -23,7 +23,7 @@ const Footer = () => {
               Amanda Carpenedo
             </a>
             <p className="mt-4 text-background/70 text-sm">
-              Frontend Web Developer & UX/UI Designer con una passione per creare
+              Full-Stack Developer & UX/UI Designer con una passione per creare
               esperienze digitali intuitive e performanti.
             </p>
           </div>

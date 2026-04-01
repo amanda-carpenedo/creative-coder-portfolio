@@ -4,14 +4,14 @@ import {
   SiCss3, 
   SiJavascript, 
   SiWordpress, 
-  SiElementor, 
+  SiMysql,
   SiPhp,
   SiFigma,
   SiGit,
   SiGooglechrome
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
-import { 
+import {
   LayoutGrid,
   Layers,
   Palette,
@@ -24,7 +24,9 @@ import {
   Lightbulb,
   Sparkles,
   Clock,
-  BookOpen
+  BookOpen,
+  Bot,
+  Terminal
 } from "lucide-react";
 import { IconType } from "react-icons";
 import { LucideIcon } from "lucide-react";
@@ -34,13 +36,13 @@ type IconComponent = IconType | LucideIcon;
 const skillCategories = [
   {
     id: "frontend",
-    title: "Frontend Development",
+    title: "Full-Stack Development",
     skills: [
       { name: "HTML5", icon: SiHtml5 as IconComponent },
       { name: "CSS3", icon: SiCss3 as IconComponent },
       { name: "JavaScript", icon: SiJavascript as IconComponent },
       { name: "WordPress", icon: SiWordpress as IconComponent },
-      { name: "Elementor", icon: SiElementor as IconComponent },
+      { name: "MySQL", icon: SiMysql as IconComponent },
       { name: "PHP", icon: SiPhp as IconComponent },
     ],
   },
@@ -66,6 +68,8 @@ const skillCategories = [
       { name: "SEO Basics", icon: Search as IconComponent },
       { name: "Performance Optimization", icon: Zap as IconComponent },
       { name: "Accessibility (WCAG)", icon: Eye as IconComponent },
+      { name: "Claude Code", icon: Terminal as IconComponent },
+      { name: "Utilizzo di LLM", icon: Bot as IconComponent },
     ],
   },
   {

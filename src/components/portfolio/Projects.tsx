@@ -6,6 +6,7 @@ import nayane from "../../img/nayane.mp4";
 import syntaxwear from "../../img/syntaxwear.mp4";
 import mondoselvaggio from "../../img/mondo-selvaggio.png";
 import mila from "../../img/mila.png";
+import anticoforno from "../../img/lanticoforno.mov";
 
 const projects = [
   {
@@ -55,18 +56,17 @@ const projects = [
       "Responsive Design",
       "Photoshop",
     ],
-    liveUrl:
+    figmaUrl:
       "https://www.figma.com/design/crYGqj2VQLO6wuUcOBtv9H/Zoo-project?node-id=0-1&t=7Wkm02AzD4ZVwIai-1",
     githubUrl: "#",
     media: mondoselvaggio,
   },
   {
-    title: "Skin & Color",
+    title: "Skin & Colour",
     subtitle: "Progetto Figma e WordPress",
     category: "Figma / WordPress",
-    description:
-      "Progetto di visual design per il sito 'Skin & Color', realizzato per SHM Web Agency. L'intero processo creativo è stato gestito su Figma, partendo dalla definizione dell'architettura dell'informazione attraverso wireframe responsivo di alta fedeltà.",
-    tags: [
+    description:"Skin & Colour è un progetto di visual design e sviluppo web dinamico e responsive realizzato presso SHM Web Agency. Il concept grafico è stato progettato in Figma e successivamente sviluppato con Claude Code, JavaScript e librerie moderne, con focus su performance, esperienza utente e resa responsive.",
+        tags: [
       "Figma",
       "WordPress",
       "UX/UI Design",
@@ -74,7 +74,8 @@ const projects = [
       "Affinity",
     ],
     liveUrl:
-      "https://www.figma.com/design/64QcgyLBHwCvyGMenxyzKp/MILA-WEBSITE?node-id=0-1&p=f&t=bgikjHB6TioT4owc-0",
+    "https://amanda-carpenedo.github.io/Mila/index.html",
+    figmaUrl: "https://www.figma.com/design/64QcgyLBHwCvyGMenxyzKp/MILA-WEBSITE?t=z6Mieco6j6fpp3YG-0",
     githubUrl: "https://github.com/amanda-carpenedo/Mila",
     media: mila,
   },
@@ -91,8 +92,8 @@ const projects = [
       "PHP",
       "MySQL",
     ],
-    githubUrl: "https://github.com/amanda-carpenedo/lantico-forno",
-    media: mila,
+    githubUrl: "https://github.com/amanda-carpenedo/lantico-forno-main",
+    media: anticoforno,
   },
 
 
@@ -127,15 +128,15 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       className="sticky top-24"
     >
       <article
-        className="rounded-2xl overflow-hidden shadow-xl shadow-black/30"
+        className="rounded-2xl overflow-hidden shadow-xl shadow-black/30 h-[620px]"
         style={{
           marginTop: index === 0 ? 0 : "-2rem",
           zIndex: index + 1,
         }}
       >
-        <div className="grid lg:grid-cols-2 gap-0">
+        <div className="grid lg:grid-cols-2 gap-0 h-full">
           {/* Text Content - White Background */}
-          <div className="p-8 lg:p-12 flex flex-col justify-between bg-primary">
+          <div className="p-8 lg:p-12 flex flex-col justify-between bg-primary h-full overflow-hidden">
             <div>
               {/* Title Section */}
               <motion.div
@@ -190,15 +191,28 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               viewport={{ once: true }}
               className="flex flex-wrap items-center gap-4"
             >
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary-foreground/50 text-primary-foreground font-medium transition-all hover:bg-primary-foreground/10 hover:border-primary-foreground"
-              >
-                <span>Live website</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              {project.liveUrl && project.liveUrl !== "#" && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary-foreground/50 text-primary-foreground font-medium transition-all hover:bg-primary-foreground/10 hover:border-primary-foreground"
+                >
+                  <span>Live website</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              )}
+              {project.figmaUrl && project.figmaUrl !== "#" && (
+                <a
+                  href={project.figmaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full border border-primary-foreground/50 text-primary-foreground transition-all hover:bg-primary-foreground/10 hover:border-primary-foreground"
+                  aria-label="Figma"
+                >
+                  <Figma className="w-5 h-5" />
+                </a>
+              )}
               {project.githubUrl && project.githubUrl !== "#" && (
                 <a
                   href={project.githubUrl}

@@ -51,7 +51,7 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground mb-4"
           >
-            Frontend Web Developer & UX/UI Designer
+            Full-Stack Developer & UX/UI Designer
           </motion.p>
 
      
