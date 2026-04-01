@@ -6,7 +6,7 @@ import nayane from "../../img/nayane.mp4";
 import syntaxwear from "../../img/syntaxwear.mp4";
 import mondoselvaggio from "../../img/mondo-selvaggio.png";
 import mila from "../../img/mila.png";
-import anticoforno from "../../img/lanticoforno.mov";
+import anticoforno from "../../img/lanticoforno.mp4";
 
 const projects = [
   {
