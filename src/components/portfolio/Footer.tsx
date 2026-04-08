@@ -55,7 +55,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Scarica il CV</h4>
             <div className="space-y-3 mb-6 flex justify-center md:justify-start">
               <a
-              href="/docs/Amanda-Carpenedo-CV-frontend.pdf"
+              href="/docs/Amanda-Carpenedo-CV.pdf"
               download="Curriculo_Amanda_Carpenedo.pdf"
               rel="noopener noreferrer"
             >
