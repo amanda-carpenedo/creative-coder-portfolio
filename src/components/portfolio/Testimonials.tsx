@@ -1,5 +1,12 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -9,20 +16,64 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.",
     name: "Nome Cognome",
     role: "Ruolo / Azienda",
     rating: 5,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat.",
+    name: "Nome Cognome",
+    role: "Ruolo / Azienda",
+    rating: 5,
+  },
+  {
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco.",
     name: "Nome Cognome",
     role: "Ruolo / Azienda",
     rating: 5,
   },
 ];
 
+const TestimonialCard = ({ t }: { t: (typeof testimonials)[number] }) => (
+  <div className="group relative h-full p-8 rounded-2xl glass-beige hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col">
+    {/* Quote Icon */}
+    <div className="absolute -top-4 -left-2 w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
+      <Quote className="w-5 h-5 text-primary-foreground" fill="currentColor" />
+    </div>
+
+    {/* Stars */}
+    <div className="flex gap-1 mb-5 mt-2">
+      {Array.from({ length: t.rating }).map((_, i) => (
+        <Star key={i} className="w-5 h-5 text-primary" fill="hsl(var(--primary))" />
+      ))}
+    </div>
+
+    {/* Text */}
+    <p className="text-foreground/85 leading-relaxed italic mb-8 flex-1">
+      &ldquo;{t.text}&rdquo;
+    </p>
+
+    {/* Author */}
+    <div className="pt-5 border-t border-primary/20">
+      <p className="font-semibold text-foreground">{t.name}</p>
+      <p className="text-sm text-muted-foreground mt-1">{t.role}</p>
+    </div>
+  </div>
+);
+
 const Testimonials = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [selected, setSelected] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setCount(api.scrollSnapList().length);
+    setSelected(api.selectedScrollSnap());
+    api.on("select", () => setSelected(api.selectedScrollSnap()));
+  }, [api]);
+
   return (
     <section id="testimonianze" className="section-padding bg-secondary/30">
       <div className="container-custom">
@@ -39,46 +90,63 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {testimonials.map((t, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-80px" }}
-              className="group relative p-8 rounded-2xl glass-beige hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 flex flex-col"
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="relative px-2 sm:px-12 md:px-16"
+        >
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4 md:-ml-6 py-6">
+              {testimonials.map((t, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3"
+                >
+                  <TestimonialCard t={t} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* Elegant centered side arrows */}
+            <button
+              onClick={() => api?.scrollPrev()}
+              aria-label="Precedente"
+              className="absolute left-0 sm:-left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
             >
-              {/* Quote Icon */}
-              <div className="absolute -top-4 -left-2 w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
-                <Quote className="w-5 h-5 text-primary-foreground" fill="currentColor" />
-              </div>
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+            </button>
+            <button
+              onClick={() => api?.scrollNext()}
+              aria-label="Successivo"
+              className="absolute right-0 sm:-right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
+            >
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+            </button>
+          </Carousel>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-5 mt-2">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 text-primary"
-                    fill="hsl(var(--primary))"
-                  />
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-foreground/85 leading-relaxed italic mb-8 flex-1">
-                &ldquo;{t.text}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div className="pt-5 border-t border-primary/20">
-                <p className="font-semibold text-foreground">{t.name}</p>
-                <p className="text-sm text-muted-foreground mt-1">{t.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {Array.from({ length: count }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => api?.scrollTo(i)}
+                aria-label={`Vai alla testimonianza ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  selected === i
+                    ? "w-8 bg-primary"
+                    : "w-2 bg-primary/30 hover:bg-primary/50"
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
