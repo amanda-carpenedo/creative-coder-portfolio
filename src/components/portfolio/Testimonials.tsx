@@ -108,7 +108,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true, margin: "-80px" }}
-          className="relative px-14 sm:px-16 md:px-20"
+          className="relative px-16 sm:px-20 md:px-24"
         >
           <Carousel
             setApi={setApi}
