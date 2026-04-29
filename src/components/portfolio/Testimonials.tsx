@@ -10,27 +10,34 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    name: "Nome Cognome",
-    role: "Ruolo / Azienda",
+    text: `Amanda è stata mia allieva nel corso 'Tecnico di sviluppo e gestione siti web', nello specifico per la materia 'Comunicazione e WordPress'.
+È stata senza dubbio una dei migliori studenti che abbia avuto il piacere di formare in questi anni.
+
+Curiosa nell'apprendimento, precisa e puntuale nelle consegne. 
+Ha sempre cercato di spingersi oltre i suoi limiti per imparare nuove nozioni, producendo grafiche su Figma e siti WordPress professionali e precisi.
+Ha un ottimo gusto grafico, appassionata di UI, e ha affinato le competenze in sviluppo WordPress. Non marginale la conoscenza di html, css e programmazione, che sicuramente rendono completa la sua figura di Web Designer.
+
+Sono sicura che sarà un'ottima professionista, qualsiasi strada scelga di intraprendere: intelligenza, caparbietà e skill tecniche non le mancano.`,
+    name: "Adriana Chiabrera",
+    role: "Insegnante / Forte Chance ETS",
     rating: 5,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.",
-    name: "Nome Cognome",
-    role: "Ruolo / Azienda",
+    text: "Lavorare con Amanda è stata un'esperienza eccellente. Ha dimostrato una grande competenza tecnica, sensibilità estetica e una visione strategica che hanno fatto la differenza nel risultato finale del mio sito web. La consiglio vivamente a chiunque cerchi un lavoro professionale, ben eseguito e in linea con gli obiettivi del progetto.",
+    name: "Bruno Guaragna",
+    role: "Cliente / Progetto Personale",
     rating: 5,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat.",
-    name: "Nome Cognome",
-    role: "Ruolo / Azienda",
+    text: "Ho avuto il piacere di seguire Amanda Carpenedo come tutor durante il suo percorso presso SHM Studio, a partire da febbraio 2026. Fin dai primi giorni, Amanda ha dimostrato una solida padronanza delle tecnologie web con una capacità notevole di applicare queste competenze in contesti reali e complessi. Ciò che colpisce maggiormente di Amanda è la sua straordinaria capacità di apprendimento. In poco tempo ha acquisito competenze avanzate in ambiti che richiedono normalmente molto più tempo, integrando con naturalezza nuovi strumenti e metodologie nel proprio flusso di lavoro. Raccomando Amanda con piena fiducia per qualsiasi posizione nel campo dello sviluppo web. È una professionista seria, motivata e con un potenziale di crescita davvero elevato.",
+    name: "Davide Bergamini",
+    role: "SHM Studio / Founder",
     rating: 5,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco.",
-    name: "Nome Cognome",
-    role: "Ruolo / Azienda",
+    text: "Ho seguito un corso di formazione per Full Stack Web Developer con Amanda presso ForteChance ETS, della durata di circa sei mesi.Amanda si è dimostrata una persona affidabile, seria e con una forte etica del lavoro. Durante tutto il percorso ha mostrato grande capacità di adattamento, attenzione ai dettagli e un approccio sempre creativo alle attività assegnate. Il suo lavoro si è spesso distinto per qualità e originalità, risultando tra i migliori del gruppo. È sicuramente una risorsa preziosa in un team e sarei felice di poter collaborare nuovamente con lei in futuro.",
+    name: "Laura Spampinato",
+    role: "Collega / Forte Chance ETS",
     rating: 5,
   },
 ];
@@ -45,7 +52,11 @@ const TestimonialCard = ({ t }: { t: (typeof testimonials)[number] }) => (
     {/* Stars */}
     <div className="flex gap-1 mb-5 mt-2">
       {Array.from({ length: t.rating }).map((_, i) => (
-        <Star key={i} className="w-5 h-5 text-primary" fill="hsl(var(--primary))" />
+        <Star
+          key={i}
+          className="w-5 h-5 text-primary"
+          fill="hsl(var(--primary))"
+        />
       ))}
     </div>
 
@@ -86,7 +97,8 @@ const Testimonials = () => {
             Cosa Dicono di <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Le opinioni di chi ha lavorato con me e ha apprezzato il mio approccio professionale.
+            Le opinioni di chi ha lavorato con me e ha apprezzato il mio
+            approccio professionale.
           </p>
         </div>
 
@@ -120,14 +132,20 @@ const Testimonials = () => {
               aria-label="Precedente"
               className="absolute left-0 sm:-left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
             >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+              <ChevronLeft
+                className="w-5 h-5 md:w-6 md:h-6"
+                strokeWidth={2.25}
+              />
             </button>
             <button
               onClick={() => api?.scrollNext()}
               aria-label="Successivo"
               className="absolute right-0 sm:-right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
             >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+              <ChevronRight
+                className="w-5 h-5 md:w-6 md:h-6"
+                strokeWidth={2.25}
+              />
             </button>
           </Carousel>
 
