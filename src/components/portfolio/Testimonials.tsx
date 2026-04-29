@@ -108,7 +108,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true, margin: "-80px" }}
-          className="relative px-2 sm:px-12 md:px-16"
+          className="relative px-14 sm:px-16 md:px-20"
         >
           <Carousel
             setApi={setApi}
@@ -117,20 +117,17 @@ const Testimonials = () => {
           >
             <CarouselContent className="-ml-4 md:-ml-6 py-6">
               {testimonials.map((t, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3"
-                >
+                <CarouselItem key={index} className="pl-4 md:pl-6 basis-full">
                   <TestimonialCard t={t} />
                 </CarouselItem>
               ))}
             </CarouselContent>
 
-            {/* Elegant centered side arrows */}
+            {/* Elegant side arrows — outside the cards */}
             <button
               onClick={() => api?.scrollPrev()}
               aria-label="Precedente"
-              className="absolute left-0 sm:-left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
             >
               <ChevronLeft
                 className="w-5 h-5 md:w-6 md:h-6"
@@ -140,7 +137,7 @@ const Testimonials = () => {
             <button
               onClick={() => api?.scrollNext()}
               aria-label="Successivo"
-              className="absolute right-0 sm:-right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
             >
               <ChevronRight
                 className="w-5 h-5 md:w-6 md:h-6"
