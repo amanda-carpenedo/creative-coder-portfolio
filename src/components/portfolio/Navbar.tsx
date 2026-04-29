@@ -64,26 +64,28 @@ const Navbar = () => {
               </button>
             ))}
             <ThemeToggle />
-            <a
-              href="/docs/Amanda-Carpenedo-CV.pdf" 
-              download="Curriculo_Amanda_Carpenedo.pdf" 
-              rel="noopener noreferrer"
-            >
-              <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
-                <Download className="w-4 h-4 mr-2" />
-                CV
-              </Button>
-            </a>
-            <a
-              href="/docs/Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
-              download="Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
-              rel="noopener noreferrer"
-            >
-              <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
-                <Download className="w-4 h-4 mr-2" />
-                Lettera di Raccomandazione
-              </Button>
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="/docs/Amanda-Carpenedo-CV.pdf"
+                download="Curriculo_Amanda_Carpenedo.pdf"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
+                  <Download className="w-4 h-4 mr-2" />
+                  CV
+                </Button>
+              </a>
+              <a
+                href="/docs/Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+                download="Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
+                  <Download className="w-4 h-4 mr-2" />
+                  Lettera di Raccomandazione
+                </Button>
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
