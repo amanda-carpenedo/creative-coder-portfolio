@@ -123,28 +123,23 @@ const Testimonials = () => {
               ))}
             </CarouselContent>
 
-            {/* Elegant side arrows — outside the cards */}
-            <button
-              onClick={() => api?.scrollPrev()}
-              aria-label="Precedente"
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
-            >
-              <ChevronLeft
-                className="w-5 h-5 md:w-6 md:h-6"
-                strokeWidth={2.25}
-              />
-            </button>
-            <button
-              onClick={() => api?.scrollNext()}
-              aria-label="Successivo"
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
-            >
-              <ChevronRight
-                className="w-5 h-5 md:w-6 md:h-6"
-                strokeWidth={2.25}
-              />
-            </button>
           </Carousel>
+
+          {/* Elegant side arrows — outside the cards */}
+          <button
+            onClick={() => api?.scrollPrev()}
+            aria-label="Precedente"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+          </button>
+          <button
+            onClick={() => api?.scrollNext()}
+            aria-label="Successivo"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-background/70 backdrop-blur-md border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.25} />
+          </button>
 
           {/* Dots */}
           <div className="flex items-center justify-center gap-2 mt-8">
