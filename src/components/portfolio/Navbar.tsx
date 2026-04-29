@@ -74,6 +74,16 @@ const Navbar = () => {
                 CV
               </Button>
             </a>
+            <a
+              href="/docs/Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+              download="Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+              rel="noopener noreferrer"
+            >
+              <Button size="sm" variant="outline" className="hover:opacity-90 transition-opacity">
+                <Download className="w-4 h-4 mr-2" />
+                Lettera
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

@@ -52,18 +52,28 @@ const Footer = () => {
 
           {/* Download CV & Social */}
           <div>
-            <h4 className="font-semibold mb-4">Scarica il CV</h4>
-            <div className="space-y-3 mb-6 flex justify-center md:justify-start">
+            <h4 className="font-semibold mb-4">Documenti</h4>
+            <div className="space-y-3 mb-6 flex flex-col items-center md:items-start gap-3">
               <a
-              href="/docs/Amanda-Carpenedo-CV.pdf"
-              download="Curriculo_Amanda_Carpenedo.pdf"
-              rel="noopener noreferrer"
-            >
-              <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
-                <Download className="w-4 h-4 mr-2" />
-                 Scarica PDF
-              </Button>
-            </a>
+                href="/docs/Amanda-Carpenedo-CV.pdf"
+                download="Curriculo_Amanda_Carpenedo.pdf"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" className="gradient-bg hover:opacity-90 transition-opacity">
+                  <Download className="w-4 h-4 mr-2" />
+                  Scarica CV
+                </Button>
+              </a>
+              <a
+                href="/docs/Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+                download="Lettera_Raccomandazione_Amanda_Carpenedo.pdf"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="outline" className="border-background/30 text-background hover:bg-background/10">
+                  <Download className="w-4 h-4 mr-2" />
+                  Lettera di Raccomandazione
+                </Button>
+              </a>
             </div>
 
           
