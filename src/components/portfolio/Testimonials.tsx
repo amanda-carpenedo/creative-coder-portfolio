@@ -45,7 +45,7 @@ Sono sicura che sarà un'ottima professionista, qualsiasi strada scelga di intra
 const TestimonialCard = ({ t }: { t: (typeof testimonials)[number] }) => (
   <div className="group relative h-full p-8 rounded-2xl glass-beige hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col">
     {/* Quote Icon */}
-    <div className="absolute -top-4 -left-2 w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
+    <div className="absolute top-4 left-4 w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
       <Quote className="w-5 h-5 text-primary-foreground" fill="currentColor" />
     </div>
 
